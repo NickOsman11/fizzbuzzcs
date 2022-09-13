@@ -9,7 +9,7 @@ namespace FizzBuzz
             FizzBuzz fizzbuzz = new FizzBuzz();
             for (int i = 1; i < 101; i++) 
             {
-                Console.WriteLine(fizzbuzz.FizzBuzzFor(i));
+                fizzbuzz.FizzBuzzFor(i);
             }
         }
     }

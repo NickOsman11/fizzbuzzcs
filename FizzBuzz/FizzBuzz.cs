@@ -1,37 +1,28 @@
+using System.Text.RegularExpressions;
+
 namespace FizzBuzz
 {
     public class FizzBuzz
     {
-        private static bool IsDivisibleBy(int a, int b)
-        {
-            return a % b == 0;
-        }
-        public string FizzBuzzFor(int n)
-        {
-            string output = "";
-            if (IsDivisibleBy(n, 3)) 
+
+        List<Rule> listOfRules = new List<Rule>{ 
+            new Rule3()
+        };
+
+        public void FizzBuzzFor(int i)
+        {    
+            string result = "";
+            foreach (Rule rule in listOfRules)
             {
-                output += "Fizz";
-            }
-            if (IsDivisibleBy(n, 5))
-            {
-                output += "Buzz";
-            }
-            if (IsDivisibleBy(n, 7))
-            {
-                output += "Bang";
-            }
-            if (IsDivisibleBy(n, 11))
-            {
-                output = "Bong";
+                result = rule.CheckAndApplyRule(i, result);
             }
 
-
-            if (output != "")
+            if (result == "")
             {
-                return output;
+                result = i.ToString();
             }
-            return n.ToString();
+            
+            Console.WriteLine(result);
         }
     }
 }
